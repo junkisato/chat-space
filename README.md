@@ -7,8 +7,9 @@
 |password|string|null: false|
 
 ### Association
-- has_many :members
-- has_many :groups, through: :members
+- has_many :messages
+- has_many :users_groups
+- has_many :groups, through: :users_groups
 
 ## messagesテーブル
 
@@ -30,10 +31,11 @@
 |name|text|null: false|
 
 ### Association
-- has_many :members
-- has_many :users, through: :members
+- has_many :messages
+- has_many :users_groups
+- has_many :users, through: :users_groups
 
-## membersテーブル
+## users_groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
