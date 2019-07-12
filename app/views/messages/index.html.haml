@@ -1,73 +1,43 @@
-.header
-  .header__message
-    グループを作成しました
+= render partial: "shared/side-bar";
 
-.wrapper
-  .chat-side
-    .side-header
-      .side-header__box
-        .side-header__box__user-name
-          text-user
-        .side-header__box__menu
-          =link_to "https://www.facebook.com/", class: "side-header__box__menu__new-group" do
-            = fa_icon 'edit'
-          =link_to "https://www.facebook.com/", class: "side-header__box__menu__edit-user" do
-            = fa_icon 'cog'
-    .groups
-      .group
-        .group__group-name
-          test-group
-        .group__latest-message
-          さようなら!
-      .group
-        .group__group-name
-          test-group
-        .group__latest-message
-          hello!
-      .group
-        .group__group-name
-          example
-        .group__latest-message
-          まだメッセージがありません
+.chat-main
+  .main-header
+    .main-header__left-box
+      .main-header__left-box__current-group
+        test-group
+      .main-header__left-box__member-list
+        Members:
+        .main-header__left-box__member-list__member
+          seo neko
+    .main-header__edit-btn
+      Edit
 
-  .chat-main
-    .main-header
-      .main-header__left-box
-        .main-header__left-box__current-group
-          test-group
-        .main-header__left-box__member-list
-          Members:
-          .main-header__left-box__member-list__member
-            seo neko
-      .main-header__edit-btn
-        Edit
+  .messages
+    .message
+      .message__upper-info
+        .message__upper-info__talker
+          test-user
+        .message__upper-info__date
+          2019/09/30(Wed) 17:50:36
+      .message__text
+        こんにちは！
+      .message__image
 
-    .messages
       .message
-        .message__upper-info
-          .message__upper-info__talker
-            test-user
-          .message__upper-info__date
-            2019/09/30(Wed) 17:50:36
-        .message__text
-          こんにちは！
-        .message__image
+      .message__upper-info
+        .message__upper-info__talker
+          test-user
+        .message__upper-info__date
+          2019/09/30(Wed) 17:50:36
+      .message__text
+        さようなら！
+      .message__image
 
-        .message
-        .message__upper-info
-          .message__upper-info__talker
-            test-user
-          .message__upper-info__date
-            2019/09/30(Wed) 17:50:36
-        .message__text
-          さようなら！
-        .message__image
-
-    .form
-      %form{class:"new_message",methot:"post",enctype:"multipart/form-data"}
-        .input-box
-          %input{placeholder:"type a message",class:"input-box__text",type:"text"}
-          %label{class:"input-box__image",for:"message_image"} 
-            = fa_icon 'image'
-            %input{class:"input-box__image__file",type:"file",name:"message[image]",id:"message_image"}
-        %input{type:"submit",name:"commit", class:"submit-btn"}
+  .form
+    %form{class:"new_message",methot:"post",enctype:"multipart/form-data"}
+      .input-box
+        %input{placeholder:"type a message",class:"input-box__text",type:"text"}
+        %label{class:"input-box__image",for:"message_image"} 
+          = fa_icon 'image'
+          %input{class:"input-box__image__file",type:"file",name:"message[image]",id:"message_image"}
+      %input{type:"submit",name:"commit", class:"submit-btn"}
