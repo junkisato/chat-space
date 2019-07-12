@@ -1,0 +1,64 @@
+
+.header {
+  height: 24px;
+  width: 100vw;
+  background-color: $blueColor;
+  position: fixed;
+  &__message {
+    text-align: center;
+    color: $whiteColor;
+  }
+}
+
+.chat-side{
+  float: left;
+  width: 300px;
+  color: $whiteColor;
+  font-weight: bold;
+}
+.side-header{
+    height: 100px;
+    padding: 0 20px;
+    background-color: #253141;
+  &__box{
+    line-height: 100px;
+    bottom: 0;
+    &__user-name{
+      float: left;
+      font-size: 16px;
+    }
+    &__menu{
+      float: right;
+      display: flex;
+    } 
+  }
+}
+
+.fa-edit{
+  padding-right: 5px;
+  font-size: 1.3rem;
+  color: $whiteColor;
+}
+
+.fa-cog{
+  font-size: 1.3rem;
+  color: $whiteColor;
+}
+
+.groups{
+  background-color: #2f3e51;
+  height: calc(100vh - 100px);
+  padding: 20px 20px 0 20px;
+}
+.group{
+  &__group-name{
+    font-size: 15px;
+    padding-bottom: 5px;
+    color: $whiteColor;
+  }
+  &__latest-message{
+    font-size: 11px;
+    padding-bottom: 40px;
+    color: $whiteColor;
+  }
+}
