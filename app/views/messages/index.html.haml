@@ -13,31 +13,22 @@
       Edit
 
   .messages
-    .message
-      .message__upper-info
-        .message__upper-info__talker
-          test-user
-        .message__upper-info__date
-          2019/09/30(Wed) 17:50:36
-      .message__text
-        こんにちは！
-      .message__image
-
-      .message
-      .message__upper-info
-        .message__upper-info__talker
-          test-user
-        .message__upper-info__date
-          2019/09/30(Wed) 17:50:36
-      .message__text
-        さようなら！
-      .message__image
+    = render partial: 'message', collection: @messages
 
   .form
-    %form{class:"new_message",methot:"post",enctype:"multipart/form-data"}
+    = form_for [@group, @message] do |f|
       .input-box
-        %input{placeholder:"type a message",class:"input-box__text",type:"text"}
-        %label{class:"input-box__image",for:"message_image"} 
-          = fa_icon 'image'
-          %input{class:"input-box__image__file",type:"file",name:"message[image]",id:"message_image"}
-      %input{type:"submit",name:"commit", class:"submit-btn"}
+        = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+        = f.label :image, class: 'input-box__image' do
+          = fa_icon 'picture-o', class: 'image'
+          = f.file_field :image, class: 'input-box__image__file'
+      = f.submit 'Send', class: 'submit-btn'
+
+      -# .form
+  -#   %form{class:"new_message",methot:"post",enctype:"multipart/form-data"}
+  -#     .input-box
+  -#       %input{placeholder:"type a message",class:"input-box__text",type:"text"}
+  -#       %label{class:"input-box__image",for:"message_image"} 
+  -#         = fa_icon 'image'
+  -#         %input{class:"input-box__image__file",type:"file",name:"message[image]",id:"message_image"}
+  -#     %input{type:"submit",name:"commit", class:"submit-btn"}
