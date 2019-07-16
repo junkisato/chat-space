@@ -7,7 +7,9 @@ $(function(){
     else{
       var content =""
     }
-
+    // 一行で書くこともできる
+    // var content = message.image.url ? `<img class="message__image" src=${message.image.url}>` : "";
+    
     var html = `<div class="message">
                   <div class="message__upper-info">
                     <div class="message__upper-info__talker">
