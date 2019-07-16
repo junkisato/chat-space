@@ -1,8 +1,12 @@
 $(function(){
   function buildHTML(message){
     
-    var content = if(message.content !== '')
-                    ${message.content}
+    if(message.image.url !== null){
+      var content =`<img class="message__image" src=${message.image.url}>`
+    }
+    else{
+      var content =""
+    }
 
     var html = `<div class="message">
                   <div class="message__upper-info">
@@ -15,9 +19,8 @@ $(function(){
                   </div>
                   <p class="message__text">
                     ${message.content}
-                  </p>`
-                  - if message.content.present?
-                  `<img class="message__image" src=${message.image.url} >
+                  </p>
+                  ${content}
                 </div>`
     return html;
   }
@@ -35,9 +38,9 @@ $(function(){
     })
     .done(function(message){
       var html = buildHTML(message);
-      $('.messages').append(html)
-      $('.input-box__text').val('')
-      $('.message_image').val('')
+      $('.messages').append(html);
+      $('#new_message')[0].reset();
+      $(".submit-btn").prop("disabled", false);
     })
     .fail(function(){
       alert('error');
