@@ -40,9 +40,9 @@ $(function() {
   });
 
   $("#user-search-result").on("click", ".user-search-add", function () {
-    console.log(1)
-    var user_id = $(this).attr('data-user-id')
-    var user_name = $(this).attr('data-user-name')
+    console.log(this)
+    var user_id = $(this).data('userId')
+    var user_name = $(this).data('userName')
       var html =  `<div class="chat-group-user clearfix js-chat-member" id="chat-group-user-${user_id}">
                     <input name="group[user_ids][]" type="hidden" value=${user_id}>
                     <p class="chat-group-user__name">${user_name}</p>
