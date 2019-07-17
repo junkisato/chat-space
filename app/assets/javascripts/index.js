@@ -40,7 +40,6 @@ $(function() {
   });
 
   $("#user-search-result").on("click", ".user-search-add", function () {
-    console.log(this)
     var user_id = $(this).data('userId')
     var user_name = $(this).data('userName')
       var html =  `<div class="chat-group-user clearfix js-chat-member" id="chat-group-user-${user_id}">
