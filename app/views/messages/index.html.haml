@@ -4,13 +4,15 @@
   .main-header
     .main-header__left-box
       .main-header__left-box__current-group
-        test-group
+        = @group.name
       .main-header__left-box__member-list
         Members:
         .main-header__left-box__member-list__member
-          seo neko
-    .main-header__edit-btn
-      Edit
+          - @group.users.each do |user|
+            = user.name
+    %a{href:"/groups/#{@group.id}/edit"}
+      .main-header__edit-btn
+        Edit
 
   .messages
     = render partial: 'message', collection: @messages

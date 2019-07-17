@@ -16,7 +16,7 @@ $(function(){
                       ${message.name}
                     </div>
                     <div class="message__upper-info__date">
-                      ${message.created_at}.strftime("%Y/%m/%d %H:%M")
+                      ${message.created_at}
                     </div>
                   </div>
                   <p class="message__text">
