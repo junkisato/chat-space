@@ -1,13 +1,5 @@
 $(function(){
   function buildHTML(message){
-    
-    // if(message.image.url !== null){
-    //   var content =`<img class="message__image" src=${message.image.url}>`
-    // }
-    // else{
-    //   var content =""
-    // }
-    // 一行で書くこともできる
     var image = message.image.url ? `<img class="message__image" src=${message.image.url}>` : "";
     
     var html = `<div class="message" data-id= ${message.id}>
@@ -63,11 +55,8 @@ $(function(){
     })
     .done(function(messages) {
       var insertHTML = '';
-      //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
       $.each(messages, function(i, message){
-        //メッセージが入ったHTMLを取得
         var html = buildHTML(message)
-        //メッセージを追加
         insertHTML += html
       })
       if(insertHTML !== ''){
@@ -75,7 +64,6 @@ $(function(){
       }
     })
     .fail(function() {
-      console.log('error');
     });
   };
    var now_url = location.pathname ;
