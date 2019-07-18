@@ -3,7 +3,7 @@
 .chat-main
   .main-header
     .main-header__left-box
-      .main-header__left-box__current-group
+      .main-header__left-box__current-group{data: {id: @group.id}}
         = @group.name
       .main-header__left-box__member-list
         Members:
