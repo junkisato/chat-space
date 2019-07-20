@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
   
-  def index
-    @users = User.where("name LIKE(?) AND id != ?", "%#{params[:keyword]}%",current_user)
+  def index 
+    @users =User.where("name LIKE(?) AND id != ?", "%#{params[:keyword]}%",current_user)
+    # users =user.where('id != ?', params[:input_user])
+    # if users.respond_to?
+    #   @users.push(users)
+    #   @users.flatten!
+    # end
     respond_to do |format|
       format.html
       format.json
