@@ -16,18 +16,27 @@ $(function() {
   
   $("#user-search-field").on("input", function() {
     var input = $("#user-search-field").val();
+    // var input_user = $(".user-search-remove").map(function(){
+    //   return $(this).data('id');
+    // }).toArray();
+
+    // var a = [];
+    // $('.user-search-remove').each(function(index,value) {
+    //   b = $(value).data("id");
+    //   a.unshift(b);
+    // })
 
     $.ajax({
       type: 'GET',
       url: '/users',
-      data: { keyword: input },
+      data: { keyword: input},
       dataType: 'json'
     })
     .done(function(users) {
       $("#user-search-result").empty();
       if (users.length !== 0 && input.length !== 0) {
         users.forEach(function(user){
-            appendProduct(user);
+          appendProduct(user);
         });
       }
       else {
@@ -45,13 +54,12 @@ $(function() {
       var html =  `<div class="chat-group-user clearfix js-chat-member" id="chat-group-user-${user_id}">
                     <input name="group[user_ids][]" type="hidden" value=${user_id}>
                     <p class="chat-group-user__name">${user_name}</p>
-                    <a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn">削除</a>
+                    <a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn"  data-user-id=${user_id}>削除</a>
                   </div>`
     $(".chat-group-users").append(html);
       $(this).parent().remove();
-    
-    $(".chat-group-form__field--right").on("click", ".user-search-remove", function () {
-      $(this).parent().remove();
-    });
+  });
+  $(".chat-group-users").on("click", '.js-remove-btn', function () {
+    $(this).parent().remove();
   });
 });
